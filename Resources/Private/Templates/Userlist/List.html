@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<head>
+  <title>Listing for Userlist</title>
+</head>
+<body>
+  <f:layout name="Default" />
+
+
+  <f:section name="main">
+  <h1>Listing for Userlist</h1>
+
+  <f:flashMessages />
+
+  <f:debug title="Results of customers query">{userlists}</f:debug>
+
+
+  <table  class="tx_simpleseeuser" >
+   <tr>
+    <th> </th>
+    <th> </th>
+  </tr>
+
+  <f:for each="{userlists}" as="userlist">
+  <tr>
+    <td>{userlist.title}</td>
+    <td>{userlist.name}</td>
+
+    <td>{userlist.address}</td>
+    <td>{userlist.zip}</td>
+    <td>{userlist.city}</td>
+    <td>{userlist.country}</td>
+
+    <td>{userlist.telephone}</td>
+    <td>{userlist.address}</td>
+    <td>{userlist.fax}</td>
+    <td>{userlist.email}</td>
+  </tr>
+</f:for>
+</table>
+
+
+<!--
+  <table  class="tx_simpleseeuser" >
+   <tr>
+    <th> </th>
+    <th> </th>
+  </tr>
+
+  <f:for each="{userlists}" as="userlist">
+  <tr>
+   <td><f:link.action action="edit" arguments="{userlist : userlist}">Edit</f:link.action></td>
+   <td><f:link.action action="delete" arguments="{userlist : userlist}">Delete</f:link.action></td>
+ </tr>
+</f:for>
+</table>
+
+<f:link.action action="new">New Userlist</f:link.action>
+-->
+</f:section>
+<body>
+  </html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-08-19T22:11:17Z" product-name="simpleseeuser">
+		<header/>
+		<body>
+			<trans-unit id="tx_simpleseeuser_domain_model_userlisting">
+				<source>Simpleseeuser - userlisting</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleseeuser_domain_model_userlisting.description">
+				<source> Display the user profile</source>
+			</trans-unit>
+			<trans-unit id="tx_simpleseeuser_domain_model_userlist">
+				<source>Userlist</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
