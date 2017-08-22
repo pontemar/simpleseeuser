@@ -15,31 +15,30 @@ namespace Seuserpue\Simpleseeuser\Domain\Repository;
 /**
  * The repository for Userlists
  */
-class UserlistRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
-
-	/**
-	 * findUser
-	 * @param $theKat
-	 * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
-	*/
-	public function findUser($theKat){
-		// Create query object
-		$query = $this->createQuery();
-
-		$query->getQuerySettings()->setRespectStoragePage(TRUE);
-
-		// Set plain SQL statement
-		$sql = 'SELECT uid, usergroup, title, name, addridpub,
-		address, zip, city, country, contacttelpub,
-		telephone, handy, contactmailpub, email, linkpub,
+class UserlistRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+{
+    /**
+     * findUser
+     *
+     * @param int $theKat
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findUser($theKat)
+    {
+        // Create query object
+        $query = $this->createQuery();
+        //$query->getQuerySettings()->setRespectStoragePage(TRUE);
+        // Set plain SQL statement
+        $sql = 'SELECT uid, pid, usergroup, title, name, puespaltenaddredpub,
+		address, zip, city, country, puespaltencontacttelpub,
+		telephone, puespaltenhandypub, puespaltenhandy, puespaltencontactmailpub, email, puespaltenlinkpub,
 		www, image
 		from fe_users
 		WHERE usergroup like("%5%") ORDER BY name ';
-
-		$query->statement($sql);
-
-		// Execute query
-		return $query->execute();
-	}
-
+        $query->statement($sql);
+        // add the pid constraint
+        $query->getQuerySettings()->setRespectStoragePage(TRUE);
+        // Execute query
+        return $query->execute();
+    }
 }

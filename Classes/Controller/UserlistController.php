@@ -19,49 +19,36 @@ class UserlistController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 {
     /**
      * userlistRepository
-     *
+     * 
      * @var \Seuserpue\Simpleseeuser\Domain\Repository\UserlistRepository
      * @inject
      */
-
-
-
-• \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
-• \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository
-
-
     protected $userlistRepository = null;
-    protected  $extName = "tx_simpleseeuser_userlist";
 
-    public $theKat;
+    protected $extName = 'tx_simpleseeuser_userlist';
 
+    public $theKat = null;
 
     /**
      * action list
-     *
+     * 
      * @return void
-    */
-    public function listAction() {
-
+     */
+    public function listAction()
+    {
         $action = $this->request->getControllerActionName();
         // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($action, 'action');
-
         $userlists = $this->userlistRepository->findUser($theKat);
         //\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($userlists, 'userlists');
-
         $this->view->assign('userlists', $userlists);
-        //\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($userlists, 'userlists');
-
-        #$userlists = $this->userlistRepository->findAll();
-        #$this->view->assign('userlists', $userlists);
     }
 
     /**
      * action show
-     *
+     * 
      * @param \Seuserpue\Simpleseeuser\Domain\Model\Userlist $userlist
      * @return void
- */
+     */
     public function showAction(\Seuserpue\Simpleseeuser\Domain\Model\Userlist $userlist)
     {
         $this->view->assign('userlist', $userlist);
