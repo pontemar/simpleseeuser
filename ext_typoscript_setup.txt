@@ -1,0 +1,25 @@
+
+config.tx_extbase {
+  persistence {
+    classes {
+
+      TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
+        subclasses {
+          Tx_Simpleseeuser_Userlist = Seuserpue\Simpleseeuser\Domain\Model\Userlist
+
+        }
+      }
+      Seuserpue\Simpleseeuser\Domain\Model\Userlist {
+        mapping {
+          tableName = fe_users
+          recordType = Tx_Simpleseeuser_Userlist
+          #columns {
+          #  addridpub.mapOnProperty = addridpub
+          #  contactmailpub.mapOnProperty = contactmailpub
+          #}
+        }
+      }
+
+    }
+  }
+}
