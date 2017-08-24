@@ -15,8 +15,7 @@ namespace Seuserpue\Simpleseeuser\Domain\Repository;
 /**
  * The repository for Userlists
  */
-class UserlistRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
-{
+class UserlistRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
     /**
      * findUser
      *
@@ -36,8 +35,15 @@ class UserlistRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 		from fe_users
 		WHERE usergroup like("%5%") ORDER BY name ';
         $query->statement($sql);
+
         // add the pid constraint
         $query->getQuerySettings()->setRespectStoragePage(TRUE);
+
+        #$query->matching($query->equals('uid', $uid));
+
+        // ORDER BY
+        $query->setOrderings(array("name" => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING)); // array
+
         // Execute query
         return $query->execute();
     }

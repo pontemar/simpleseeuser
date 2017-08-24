@@ -1,12 +1,12 @@
 
 config.tx_extbase {
   persistence {
+    # Standard PID aus den Konstanten
+    storagePid = {$plugin.tx_simpleseeuser.persistence.storagePid}
     classes {
-
       TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
         subclasses {
           Tx_Simpleseeuser_Userlist = Seuserpue\Simpleseeuser\Domain\Model\Userlist
-          
         }
       }
       Seuserpue\Simpleseeuser\Domain\Model\Userlist {
@@ -15,7 +15,6 @@ config.tx_extbase {
           recordType = Tx_Simpleseeuser_Userlist
         }
       }
-
     }
   }
 }
