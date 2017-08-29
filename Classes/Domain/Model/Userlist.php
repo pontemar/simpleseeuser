@@ -15,6 +15,9 @@ namespace Seuserpue\Simpleseeuser\Domain\Model;
 /**
  * Display the FE users data without any edit functionality
  */
-class Userlist extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
-{
-    }
+//class Userlist extends \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
+class Userlist extends \PueNeueSpalte\PueSpalten\Domain\Model\NewSpalteFeUsers {
+
+
+}
+

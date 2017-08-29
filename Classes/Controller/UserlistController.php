@@ -25,9 +25,9 @@ class UserlistController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     //protected $userlistRepository = null;
     protected $userlistRepository;
 
-    protected $extName = 'tx_simpleseeuser_userlist';
+    protected $extName = 'tx_simpleseeuser_userlisting'; // simpleseeuser
     public $theKat = null;
-
+    public $thestoragePid = 0;
 
     /**
      * action list
@@ -37,8 +37,19 @@ class UserlistController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
     public function listAction()     {
         $action = $this->request->getControllerActionName();
         // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($action, 'action');
-        $userlists = $this->userlistRepository->findUser($theKat);
+
+        //storagePid
+        $the->thestoragePid = $this->settings['storagePid'];
+
+
+        $userkategorie = $this->userlistRepository->findKategorie($the->thestoragePid, $this->theKat);
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($userkategorie, 'userkategorie');
+
+        $this->view->assign('userkategorie', $userkategorie);
+
+        $userlists = $this->userlistRepository->findUser($the->thestoragePid, $this->theKat);
         //\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($userlists, 'userlists');
+
         $this->view->assign('userlists', $userlists);
     }
 

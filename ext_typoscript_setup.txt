@@ -1,8 +1,7 @@
-
 config.tx_extbase {
   persistence {
     # Standard PID aus den Konstanten
-    storagePid = {$plugin.tx_simpleseeuser.persistence.storagePid}
+    storagePid = {$plugin.tx_simpleseeuser_userlisting.persistence.storagePid}
     classes {
       TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
         subclasses {
@@ -16,5 +15,8 @@ config.tx_extbase {
         }
       }
     }
+  }
+  settings {
+    storagePid = {$plugin.tx_simpleseeuser_userlisting.persistence.storagePid}
   }
 }

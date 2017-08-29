@@ -25,6 +25,11 @@ $EM_CONF[$_EXTKEY] = [
     'constraints' => [
         'depends' => [
             'typo3' => '7.6.0-7.6.99',
+            'fluid' => '7.6.0',
+            'extbase' => '7.6.0',
+            'sr_feuser_register' => '5.0.0',
+            'static_info_tables' => '6.4.3',
+            'pue_spalten' => '1.0.0',
         ],
         'conflicts' => [],
         'suggests' => [],
